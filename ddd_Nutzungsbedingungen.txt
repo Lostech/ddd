@@ -1,0 +1,48 @@
+Nutzungsbedingungen (scroll down for english)
+---------------------------------------------
+
+Die Nutzung dieses Programms geschieht auf eigenes
+Risiko!
+Es wird keine Haftung übernommen für Schäden oder
+Datenverluste, die durch die Benutzung entstehen könnten!
+
+Das Entfernen einer Festplatte aus einem DigiCorder
+Receiver geht einher mit dem Verlust von Garantie und
+Gewährleistung durch TechniSat bzw. durch den Verkäufer!
+
+
+© 2006-2012 by Lostech
+www.lostech.de.vu
+
+Appendix 2014:
+Der Source Code ist nun lizensiert unter der GPL v2.
+http://www.gnu.org/licenses/gpl.html
+
+Die gewerbliche Nutzung oder Weiterverbreitung dieses
+Programms ist nicht gestattet, sofern dies von den GPL v2 Bestimmungen abweicht!
+Die Modifikation dieses Programms und seiner Funktionen
+wird untersagt, sofern dies von den GPL v2 Bestimmungen abweicht!
+
+
+
+Terms of use (hochscrollen für deutsch)
+---------------------------------------
+
+Use this program at own risk!
+There is no liability for damage or data loss which can
+occur due to the usage of this program!
+
+Removal of a hardisk drive from a DigiCorder receiver
+leads to a loss of warranty from TechniSat or the seller!
+
+
+© 2006-2012 by Lostech
+www.lostech.de.vu
+
+Appendix 2014:
+The sourcecode is licensed under the GPL v2.
+http://www.gnu.org/licenses/gpl.html
+Commercial usage and distribution of this program is not allowed if
+it is not in compliance with the GPL v2!
+The modification of this program and its functionality is prohibited if
+it is not in compliance with the GPL v2!

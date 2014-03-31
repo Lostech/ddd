@@ -1,0 +1,253 @@
+DigiCorder Disk Dump
+====================
+
+DigiCorder Disk Dump ("ddd") ist ein Programm zum erzeugen und schreiben von
+Festplatten Images, sowie zum kopieren von Sektoren zwischen 2 Festplatten.
+Das Programm ist besonders auf die Verwendung mit TechniSat DigiCorder PVR
+Festplatten optimiert.
+Aufgrund der verwendeten Funktionen kann ddd nur unter Windows 2000 und XP
+genutzt werden.
+
+
+Nutzungsbedingungen
+-------------------
+
+Die Nutzung dieses Programms geschieht auf eigenes
+Risiko!
+Es wird keine Haftung übernommen für Schäden oderDatenverluste, die durch die
+Benutzung entstehen könnten!
+
+Das Entfernen einer Festplatte aus einem DigiCorder Receiver geht einher mit
+dem Verlust von Garantie und Gewährleistung durch TechniSat bzw. durch den Verkäufer!
+
+Die gewerbliche Nutzung oder Weiterverbreitung dieses Programms ist nicht gestattet!
+Die Modifikation dieses Programms und seiner Funktionen wird untersagt!
+
+© 2006-2012 by Lostech
+www.lostech.de.vu
+
+
+
+-----------------
+Programm Optionen
+-----------------
+
+-erasepd[1..19]  löscht das ausgewählte physikalische Laufwerk
+-errorignore     ignoriert Lesefehler
+-exitcodes       zeigt eine Liste der möglichen ExitCodes an
+-help            zeigt die Hilfe an
+-i [Datei]       legt die Eingabedatei fest
+-list            zeigt eine Liste mit den Header der physikalischen Laufwerke an
+-listdetails     zeigt detailierte Liste von PhysicalDrives (sofern Detail Info verfügbar)
+-noboot          ignoriert den Bootsektor beim löschen oder schreiben
+-o [Datei]       legt die Ausgabedatei fest
+-pd[0..19]       zeigt die Hardwareinformationen eines physikalischen Laufwerks an
+-pdi[0..19]      legt physikalisches Laufwerk als Quelle fest (deaktiviert Automatik)
+-pdo[1..19]      legt physikalisches Laufwerk als Ziel fest
+
+
+Erklärung:
+Ein physikalisches Laufwerk ("PhysicalDrive") ist eine Festplatte, auf die direkt
+zugegriffen werden kann, unabhängig vom vorhandenem Dateisystem.
+Jede Festplatte kann nur eine einzige PhysicalDrive Nummer haben, da die Anzahl
+der erstellten Partitionen bzw. Partitionslaufwerke für den Lowlevel Zugriff auf
+die Festplatte nicht relevant sind. Die Festplatte wird also über die PhysicalDrive
+Nummer als eigenständige Komponente adressiert.
+
+
+Anmerkungen:
+1.) PhysicalDrive0 ist aus Sicherheitsgründen für Lösch- und Schreibzugriffe
+    geblockt, da dieses Laufwerk im Normalfall die Windows Installation enthält.
+    In diesem Fall sollte man kontrollieren, ob PhysicalDrive0 das tatsächliche
+    Ziel Festplatte sein soll. Ist PhysicalDrive0 tatsächlich die gewünschte Festplatte,
+    so sollte man sein PC System so umkonfigurieren, daß die Festplatte nicht unter
+    PhysicalDrive0 gefunden wird, sondern unter einer höheren PhysicalDrive Nummer wie
+    z.B. PhysicalDrive1.
+2.) Die Option "-noboot" kann nur für Lösch- und Schreibzugriffe verwendet werden.
+3.) Das Programm kann jederzeit mit der Tastenkombination [STRG+C] bzw. [CTRL+C]
+    abgebrochen werden.
+4.) Die Option "-errorignore" kann zum Problem führen, daß das Programm nicht von alleine
+    beendet wird, wenn das Ende der Quell Festplatte erreicht wird.
+    Das Programm kann dann mit der Tastenkombination [STRG+C] bzw. [CTRL+C] abgebrochen werden.
+5.) Die Option "-list" zeigt alle PhyiscalDrives (oder Partitionen) an, auf die zugegriffen
+    werden kann. Die Option "-listdetails" zeigt nur PhysicalDrives mit verfügbaren Detailinfos an.
+
+
+----------------------------
+Liste der Programm ExitCodes
+----------------------------
+
+Das Programm liefert nach Beendigung verschiedene ExitCodes.
+
+Code | Bedeutung
+-----+------------------------------------
+  0  | kein Fehler
+  1  | nicht unterstütztes Betriebssystem (Windows 9x und NT)
+  2  | keine Kommandozeilenargumente angegeben
+  3  | PVR Festplatte nicht gefunden
+  4  | keine Dump Image Datei angegeben
+  5  | kein Lesezugriff auf physikalisches Laufwerk
+  6  | kein Schreibzugriff auf physikalisches Laufwerk
+  7  | kein Lesezugriff auf Dump Image
+  8  | kein Schreibzugriff auf Dump Image
+  9  | ungültige Kommandozeile
+ 10  | Programm wurde abgebrochen
+
+
+
+----------------
+Optionsbeispiele
+----------------
+
+Hier einige Standard Beispiele, was mit den verschiedenen Optionen bewirkt werden kann.
+Ein Fragezeichen ("?") steht für die physikalische Laufwerksnummer und muß gegen die
+tatsächliche Laufwerksnummer ausgetauscht werden
+
+1.) vorhandene Festplatten automatisch suchen und auflisten
+	
+	ddd.exe -list
+
+
+2.) Infos zu einer Festplatte auslesen
+	
+	ddd.exe -pd?
+
+
+3.) eine DigiCorder Festplatte automatisch suchen und in eine Imagedatei dumpen
+	
+	ddd.exe C:/Dumpfile.bin
+
+
+4.) eine bestimmte Festplatte in ein Datei Image dumpen
+
+	ddd.exe -pdi? -o "C:/Dumpfile.bin"
+
+
+5.) ein bestimmte Festplatte vollständig löschen
+	
+	ddd.exe -erasepd?
+
+
+6.) ein bestimmte Festplatte löschen, ohne den Bootsektor zu überschreiben
+	
+	ddd.exe -erasepd? -noboot
+    
+
+7.) eine Imagedatei auf eine Festplatte schreiben
+    
+	ddd.exe -pdo? -i "C:/Dumpfile.bin"
+    
+    
+8.) eine Imagedatei auf eine Festplatte schreiben, ohne den Bootsektor zu überschreiben
+    
+	ddd.exe -pdo? -i "C:/Dumpfile.bin" -noboot
+
+
+9.) eine Festplatte direkt auf eine andere Festplatte kopieren
+
+	ddd.exe -pdi? -pdo?
+
+
+10.) eine Festplatte direkt auf eine andere Festplatte kopieren, ohne den Bootsektor zu überschreiben
+    
+	ddd.exe -pdi? -pdo? -noboot
+
+usw.
+
+
+--------------------------------------------------------------------------------------
+Anleitung zum direktem kopieren einer DigiCorder Festplatte auf eine andere Festplatte
+--------------------------------------------------------------------------------------
+
+1.) DigiCorder vom Netz trennen und öffnen (Achtung: Garantieverlust!)
+2.) Original Festplatte aus DigiCorder ausbauen (Achtung: Garantieverlust!)
+3.) neue Festplatte in DigiCorder einbauen
+4.) DigiCorder schließen und mit Strom verbinden
+5.) neue Festplatte formatieren
+6.) DigiCorder vom Netz trennen und öffnen
+7.) PC ausschalten und öffnen
+8.) Original Festplatte in PC einbauen (Hinweis: Jumper Einstellung Master/Slave beachten)
+9.) neue Festplatte in PC einbauen (Hinweis: Jumper Einstellung Master/Slave beachten)
+10.) PC schließen und einschalten
+11.) Eingabeauffordung öffnen
+12.) in der Eingabe Aufforderung zum Ordner mit ddd wechseln
+13.) Liste der angeschlossenen Laufwerke auslesen mit 
+
+	ddd.exe -list
+
+14.) die Festplattennummern (PhysicalDrives), die einem DigiCorder zugeordnet sind, notieren
+15.) alle unter 14.) notierten PhysicalDrives kontrollieren und die erhaltenen Infos notieren
+
+	ddd.exe -pd?
+	
+     "-pd?" = unter 14.) notierte PhysicalDrive Nummer (Beispiel PhysicalDrive1 = Option "-pd1")
+
+16.) anhand der unter 14.) und 15.) gewonnenen Infos festlegen, welches PhysicalDrive Quelle
+     und welches PhysicalDrive Ziel ist
+17.) Festplattenkopie mit den ausgewerteten PhysicalDrive Angaben starten
+
+	ddd.exe -pdi? -pdo? -noboot
+
+     "-pdi?" = PhysicalDrive Nummer der Quelle
+     "-pdo?" = PhysicalDrive Nummer des Ziels
+
+18.) PC ausschalten und öffnen	
+19.) neue Festplatte aus PC ausbauen
+20.) DigiCorder vom Netz trennen und öffnen
+21.) neue Festplatte in DigiCorder einbauen
+22.) DigiCorder schließen und mit Strom verbinden
+23.) neue Festplatte im Menü "Festplatten Wartung" einmal überprüfen lassen
+
+
+
+----------------------------------------------------------------------------------------
+Anleitung zum indirektem kopieren einer DigiCorder Festplatte auf eine andere Festplatte
+----------------------------------------------------------------------------------------
+
+1.) DigiCorder vom Netz trennen und öffnen (Achtung: Garantieverlust!)
+2.) Original Festplatte aus DigiCorder ausbauen (Achtung: Garantieverlust!)
+3.) neue Festplatte in DigiCorder einbauen
+4.) DigiCorder schließen und mit Strom verbinden
+5.) neue Festplatte formatieren
+6.) DigiCorder vom Netz trennen und öffnen
+7.) PC ausschalten und öffnen
+8.) Original Festplatte in PC einbauen (Hinweis: Jumper Einstellung Master/Slave beachten)
+9.) PC schließen und einschalten
+10.) Eingabeauffordung öffnen
+11.) in der Eingabe Aufforderung zum Ordner mit ddd wechseln
+12.) Dump Image Datei erzeugen (Achtung: Ziellaufwerk sollte mindestens so viel Platz frei
+     haben, wie die Original Festplatte an Kapazität hat!)
+
+	ddd.exe "C:/Pfad_zur_Image_Datei.bin"
+
+13.) PC ausschalten und öffnen	
+14.) Original Festplatte aus PC ausbauen
+15.) neue Festplatte in PC einbauen (Hinweis: Jumper Einstellung Master/Slave beachten)
+16.) PC schließen und einschalten
+17.) Eingabeauffordung öffnen
+18.) in der Eingabe Aufforderung zum Ordner mit ddd wechseln
+19.) Liste der angeschlossenen Laufwerke auslesen mit 
+
+	ddd.exe -list
+
+20.) die Festplattennummern (PhysicalDrives), die einem DigiCorder zugeordnet sind, notieren
+21.) alle unter 20.) notierten PhysicalDrives kontrollieren und die erhaltenen Infos notieren
+
+	ddd.exe -pd?
+	
+     "-pd?" = unter 20.) notierte PhysicalDrive Nummer (Beispiel PhysicalDrive1 = Option "-pd1")
+
+22.) anhand der unter 20.) und 21.) gewonnenen Infos festlegen, welches PhysicalDrive als 
+     Ziel dienen soll
+23.) Festplattenkopie mit der ausgewerteten PhysicalDrive Angaben starten
+
+	ddd.exe -pdo? -i "C:/Pfad_zur_Image_Datei.bin"
+
+     "-pdo?" = PhysicalDrive Nummer des Ziels
+
+24.) PC ausschalten und öffnen	
+25.) neue Festplatte aus PC ausbauen
+26.) DigiCorder vom Netz trennen und öffnen
+27.) neue Festplatte in DigiCorder einbauen
+28.) DigiCorder schließen und mit Strom verbinden
+29.) neue Festplatte im Menü "Festplatten Wartung" einmal überprüfen lassen

@@ -1,0 +1,41 @@
+DigiCorder Disk Skript Anleitung
+================================
+
+
+
+Die DigiCorder Disk Dump ("ddd") Skripte:
+
+	DUMP_C.BAT
+	DUMP_D.BAT
+	DUMP_E.BAT
+	DUMP_F.BAT
+
+erstellen automatisch eine Dump Image Datei einer DigiCorder Festplatte im
+Root Verzeichnis des jeweilig ausgesuchten Windows Laufwerks.
+
+
+Je nach ausgesuchtem Skript wird die Dump Image Datei auf einem anderem Laufwerk erzeugt:
+
+	DUMP_C.BAT -> Dump Image "C:/PVRIMAGE.bin" auf Laufwerk C:
+	DUMP_D.BAT -> Dump Image "D:/PVRIMAGE.bin" auf Laufwerk D:
+	DUMP_E.BAT -> Dump Image "E:/PVRIMAGE.bin" auf Laufwerk E:
+	DUMP_F.BAT -> Dump Image "F:/PVRIMAGE.bin" auf Laufwerk F:
+
+Es sollte vor dem Start eines Skripts sichergestellt sein, daß auf dem Ziellaufwerk
+genügend Platz frei ist, um ein komplettes Abbild der DigiCorder Festplatte
+erzeugen zu können.
+
+
+
+
+Das DigiCorder Disk Dump ("ddd") Skript:
+
+	LIST_DRIVES.BAT
+
+listet alle physikalischen Festplatte im System inklusive der angeschlossenen
+DigiCorder Festplatten ein einem Fenster auf und
+
+	LIST_DRIVES_TO_NOTEPAD.bat
+
+listet alle physikalischen Festplatte im System inklusive der angeschlossenen
+DigiCorder Festplatten in NOTEPAD auf.
